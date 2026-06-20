@@ -69,8 +69,8 @@ export const orders = [
 ];
 
 export const navItems = [
-  { name: "Overview", icon: LayoutDashboard },
-  { name: "Orders", icon: ShoppingCart },
-  { name: "Customers", icon: Users },
-  { name: "Settings", icon: Settings },
+  { name: "Overview", to: "/", icon: LayoutDashboard },
+  { name: "Orders", to: "/orders", icon: ShoppingCart },
+  { name: "Customers", to: "/customers", icon: Users },
+  { name: "Settings", to: "/settings", icon: Settings },
 ];

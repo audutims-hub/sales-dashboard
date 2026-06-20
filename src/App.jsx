@@ -3,21 +3,23 @@ import Sidebar from "./components/Sidebar";
 import TopBar from "./components/TopBar";
 import RevenueChart from "./components/RevenueChart";
 import RecentOrders from "./components/RecentOrders";
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "lucide-react";
+import Overview from "./components/Overview";
+import Products from "./components/Products";
+import CustomerPage from "./components/CustomerPage";
+import SettingsPage from "./components/SettingsPage";
 
 const App = () => {
-  
   return (
-    <div className="flex min-h-screen bg-slate-50 font-sans text-slate-900">
-      <Sidebar />
-      <div className="flex-1">
-        <TopBar />
-        <main className="p-6 space-y-6">
-          <div className="grid grid-cols-4"></div>
-          <RevenueChart />
-          <RecentOrders />
-        </main>
-      </div>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Overview />} />
+        <Route path="/orders" element={<Products />} />
+        <Route path="/customers" element={<CustomerPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+      </Route>
+    </Routes>
   );
 };
 

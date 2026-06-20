@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { navItems } from "../data/data";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const [active, setActive] = useState("Overview"); // active = "Overview"
@@ -15,17 +16,17 @@ const Sidebar = () => {
           const isActive = navItem.name === active;
 
           return (
-            <button
+            <NavLink
               key={navItem.name}
+              to={navItem.to}
               onClick={() => {
-                console.log("Clicked");
                 setActive(navItem.name);
               }}
               className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium ${isActive ? "bg-indigo-50 text-indigo-700" : "text-slate-500 hover:bg-slate-50"}`}
             >
               <Icon size={18} />
               {navItem.name}
-            </button>
+            </NavLink>
           );
         })}
       </nav>
