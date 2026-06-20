@@ -13,16 +13,18 @@ export function ProductProvider({ children }) {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const res = await fetch("https://fakestoreapi.com/products')");
+        const res = await fetch("https://fakestoreapi.com/products");
         const data = await res.json();
         setProducts(data); // products = data
+
+        console.log(data);
       } catch (err) {
         setError(err, "Failed to load products");
       } finally {
         setLoading(false);
       }
     }
-    setProducts();
+    loadProducts();
   }, []);
 
   return (
